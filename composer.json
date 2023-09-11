@@ -1,0 +1,11 @@
+{
+    "autoload": {
+        "psr-4": {
+            "ifw\\": "vendor/ifw",
+            "app\\": "app"
+        }
+    },
+    "require": {
+        
+    }
+}
