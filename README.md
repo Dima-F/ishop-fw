@@ -1,3 +1,5 @@
+# Configuring apache
+
 file /etc/apache/sites-available/ishop-fw
 
 ```xml
@@ -8,6 +10,8 @@ file /etc/apache/sites-available/ishop-fw
         DocumentRoot /var/www/ishop-fw/public
         ErrorLog ${APACHE_LOG_DIR}/error.log
         CustomLog ${APACHE_LOG_DIR}/access.log combined
+        php_admin_value display_errors On
+        php_admin_value error_reporting E_ALL
 
         <Directory /var/www/ishop-fw/public>
                 Options Indexes FollowSymLinks
@@ -21,3 +25,7 @@ file /etc/apache/sites-available/ishop-fw
 
 </VirtualHost>
 ```
+
+# Fixing permissions
+
+* `./bin/fix-permissions.sh` - for making www-data user owner of tmp folder (to write logs)
