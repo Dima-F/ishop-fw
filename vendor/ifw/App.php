@@ -5,11 +5,12 @@ namespace ifw;
 class App {
     public static $app;
 
-    public function __construct()
-    {
+    public function __construct(){
+        $query = trim(urldecode($_SERVER['QUERY_STRING']), '/');
         new ErrorHandler();
         self::$app = Registry::getIstance();
         $this->getParams();
+        Router::dispatch($query);
     }
 
     protected function getParams() {
