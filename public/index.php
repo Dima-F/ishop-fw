@@ -1,7 +1,6 @@
 <?php
 
 use ifw\App;
-use ifw\Router;
 
 error_reporting(-1);
 
