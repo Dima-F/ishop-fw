@@ -2,8 +2,12 @@
 
 namespace app\controllers;
 
-class MainController {
+use ifw\Controller;
+
+class MainController extends Controller {
+  // public false|string $layout = 'test2';
   public function indexAction() {
-    echo __METHOD__;
+    // $this->layout = 'test';
+    $this->setMeta('Главная страница', 'Description...');
   }
 }

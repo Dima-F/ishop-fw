@@ -1,5 +1,5 @@
 <?php
-
+// ----------- THIS IS FRONT CONTROLLER -------------
 use ifw\App;
 
 error_reporting(-1);
