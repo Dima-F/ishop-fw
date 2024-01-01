@@ -8,5 +8,6 @@ $baseDir = dirname($vendorDir);
 return array(
     'ifw\\' => array($vendorDir . '/ifw'),
     'app\\' => array($baseDir . '/app'),
+    'RedBeanPHP\\' => array($vendorDir . '/gabordemooij/redbean/RedBeanPHP'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
 );

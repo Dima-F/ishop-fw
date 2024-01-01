@@ -11,6 +11,7 @@ use \ifw\View;
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Title</title>
   <?= $this->getMeta() ?>
+
 </head>
 <body>
   <?= $this->content; ?>
