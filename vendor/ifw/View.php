@@ -3,6 +3,7 @@
 namespace ifw;
 
 use Exception;
+use \RedBeanPHP\R as R;
 
 class View {
   public string $content = '';
@@ -48,5 +49,28 @@ class View {
     $out .= '<meta name="description" content="'.h($this->meta['description']).'"/>'.PHP_EOL;
     $out .= '<meta name="keywords" content="'.h($this->meta['keywords']).'"/>'.PHP_EOL;
     return $out;
+  }
+
+  public function getDbLogs() {
+    if(DEBUG) {
+      $databaseResource = R::getDatabaseAdapter()->getDatabase();
+      // TODO: розібратись, чому підсвічує
+      $logger = $databaseResource->getLogger();
+      // тут враховується регістр для sql комманд
+      $logs = array_merge($logger->grep('SELECT'), $logger->grep('INSERT'), $logger->grep('UPDATE'), $logger->grep('DELETE'));
+      debug($logs);
+    }
+  }
+
+  public function getPart($file, $data = null) {
+    if(is_array($data)) {
+      extract($data);
+    }
+    $file = APP."/views/{$file}.php";
+    if(is_file($file)) {
+      require($file);
+    } else {
+      echo "File {$file} not found...";
+    }
   }
 }
