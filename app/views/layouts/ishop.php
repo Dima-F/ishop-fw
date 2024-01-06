@@ -3,8 +3,9 @@
 use \ifw\View;
 /** @var $this View */
 ?>
-<?php $this->getPart('parts/header'); ?>
 
-<?= $this->content; ?>
+<?php $this->getPart('/parts/header'); ?>
 
-<?php $this->getPart('parts/footer'); ?>
+<?php echo $this->content ?>
+
+<?php $this->getPart('/parts/footer'); ?>

@@ -6,6 +6,6 @@ use \RedBeanPHP\R;
 
 class Main extends \ifw\Model {
   public function get_names(): array {
-    return R::findAll(('names'));
+    return R::findAll(('name'));
   }
 }
