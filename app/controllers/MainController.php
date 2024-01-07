@@ -2,16 +2,14 @@
 
 namespace app\controllers;
 
-use ifw\Controller;
 use app\models\Main;
+use RedBeanPHP\R;
 
 /** @property Main $model */
-class MainController extends Controller {
-  // public false|string $layout = 'test2';
+class MainController extends AppController {
   public function indexAction() {
-    // $this->layout = 'test';
-    $this->setMeta('Главная страница', 'Description...', 'keywords...');
-    $names = $this->model->get_names();
-    $this->set(compact('names'));
+    $slides = R::findAll('slider');
+    $products = $this->model->get_hits(1, 3);
+    $this->set(compact('slides', 'products'));
   }
 }
